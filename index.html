@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+                document.getElementById('activity-1').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H1 - M08</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludoyritual')">
+        <div class="title">
+            <span>👋 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida y establecer los objetivos de la misión</div>
+    </div>
+    <div id="saludoyritual" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Bienvenida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hola, Genios. Hoy pondremos en práctica el cómo usar la inteligencia artificial para desarrollar nuestras habilidades de planificación y organización. ¡Vamos a empezar!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 3 "¿Cómo Están?"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Antes de empezar, quiero saber cómo se sienten hoy. Si están listos para organizar el mejor festival cultural, levanten las dos manos. Si sienten que necesitan un poco más de energía, crucen los brazos frente a su pecho.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por Asistir"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Como siempre, juntemos nuestras manos y hagamos una reverencia para agradecer el estar aquí. Gracias por asistir, Genios.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy tenemos dos objetivos importantes: <br> 1. Planear un festival cultural utilizando IA. <br> 2. Aprender a dar instrucciones claras para obtener los mejores resultados de la IA. ¡A trabajar!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('statechange')">
+        <div class="title">
+            <span>🏃‍♀️ Actividad 2: State Change (3 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Activación física con una caminata rápida</div>
+    </div>
+    <div id="statechange" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Caminata Rápida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Vamos a activar nuestro cuerpo y nuestra mente con una caminata rápida por el aula. Les voy a dar 1 minuto para que caminen rápido, pero con cuidado, asegurándose de moverse por todo el espacio.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 7 con un cronómetro de 1 minuto</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 8 "Beneficios de la Caminata Rápida"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Esta caminata rápida nos ayuda a activar la circulación y la energía física. Al movernos, le damos a nuestro cuerpo el impulso que necesita para concentrarse mejor y estar más alertas para la siguiente actividad. ¡Bien hecho, Genios!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (4 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('teamgnius')">
+        <div class="title">
+            <span>🤝 Actividad 3: Team Gnius (4 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Formación de equipos y recolección de Magic Tablets</div>
+    </div>
+    <div id="teamgnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 9 "Formación de Equipos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, vamos a trabajar en los mismos equipos de la clase pasada. Tómense 1 minuto para reunirse con sus compañeros.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 10 con un cronómetro de 1 minuto</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 11 "Recoger Magic Tablets"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que están en sus equipos, un representante de cada equipo pase al frente a recoger las Magic Tablets para tomar notas. Tienen 1 minuto.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 12 con un cronómetro de 1 minuto</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 4 (14 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>⚔️ Actividad 4: Challenge (14 pasos)</span>
+            <span>⏰ Tiempo: 41 minutos</span>
+        </div>
+        <div class="subtitle">Planificación de un festival cultural utilizando IA</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 13 "Challenge: Festival Cultural"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Hoy trabajarán en un equipo muy especial: dos humanos y una IA. La IA será su única fuente de información. No podrán usar Google ni consultar otras fuentes externas. Esto significa que sus prompts serán clave para lograr un buen resultado. Recuerden, un proceso de ingeniería de prompts tiene iteraciones. Si el primer prompt no da el resultado esperado, cambien y prueben nuevamente. ¡No se frustren ni se confíen de la primera respuesta!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 14 "Fases del Challenge"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                El reto consiste en organizar un festival cultural escolar con la ayuda de la IA. Su tarea se divide en varias fases: 1. Definir los objetivos del festival. 2. Planear la logística del evento. 3. Organizar la comida y los vendedores. 4. Desarrollar los materiales promocionales. Al final, presentarán su plan a la clase. ¡Vamos a empezar con la Fase 1!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 15 "Fase 1: Definir los Objetivos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                La Fase 1 es definir qué aspectos culturales desean resaltar en su festival. Usen IA para obtener ideas sobre presentaciones y actividades culturales. Un ejemplo de prompt sería: 'Enumera presentaciones culturales y actividades que representen la diversidad en nuestra escuela.' Tienen 7 minutos para esto.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (7 minutos): Proyectar Diapositiva 16 con un cronómetro de 7 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 17 "Fase 2: Planear la Logística"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora que ya tienen los objetivos, vamos a la Fase 2: Planear la logística. Utilicen IA para crear un horario de presentaciones y asignar espacios. Un ejemplo de prompt sería: 'Ayúdanos a crear un horario para presentaciones en dos escenarios durante un festival de seis horas.' Tienen 7 minutos para esto.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (7 minutos): Proyectar Diapositiva 18 con un cronómetro de 7 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (1 minuto): Proyectar Diapositiva 19 "Fase 3: Organizar la Comida y Vendedores"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Pasemos a la Fase 3: Organizar los puestos de comida que representen distintas cocinas. Pidan a la IA pautas para coordinar a los vendedores. Un ejemplo de prompt sería: 'Proporciona pautas para coordinar a los vendedores de comida en un evento escolar.' Tienen 7 minutos para completar esta fase.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (7 minutos): Proyectar Diapositiva 20 con un cronómetro de 7 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (1 minuto): Proyectar Diapositiva 21 "Fase 4: Materiales Promocionales"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Finalmente, la Fase 4 es desarrollar los materiales promocionales. Utilicen IA para redactar mensajes para redes sociales o carteles. Un ejemplo de prompt sería: 'Escribe una invitación para animar a las familias a asistir a nuestro festival cultural.' Tienen 7 minutos.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (7 minutos): Proyectar Diapositiva 22 con un cronómetro de 7 minutos</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                N/A
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 11 (6 minutos): Proyectar Diapositiva 23 "Presentación de Resultados"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Ahora, vamos a escuchar los planes de festival de tres equipos. Quiero que nos cuenten cómo organizaron su evento y cómo la IA les ayudó a mejorar su planificación.
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 12 (1 minuto): Proyectar Diapositiva 24 "Revisión de Objetivos"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                ¡Gran trabajo, Genios! Hoy hemos completado dos grandes objetivos: <br> 1. Utilizar la IA para planear un evento escolar. <br> 2. Aprender a dar instrucciones claras para obtener resultados relevantes. ¡Objetivos completados!
+            </div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 13 (0.5 minutos): Proyectar Diapositiva 25 "You've Got Mon-e"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Y por supuesto, por su gran esfuerzo, ¡les toca Mon-e!
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 5 (1 paso) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honorthedojo')">
+        <div class="title">
+            <span>🏅 Actividad 5: Honor The Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 1 minuto</span>
+        </div>
+        <div class="subtitle">Ordenar el aula y recoger Magic Tablets</div>
+    </div>
+    <div id="honorthedojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 26 "Honor The Dojo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">
+                Genios, es momento de ordenar el aula. Cada equipo pase al frente y entregue las Magic Tablets. ¡Gracias por su esfuerzo hoy!
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
